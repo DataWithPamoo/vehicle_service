@@ -5,6 +5,7 @@ import com.example.vehicle_service.model.Vehicle;
 import com.example.vehicle_service.repository.VehicleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -25,7 +26,13 @@ public class VehicleServiceImpl implements VehicleService {
     }
 
     @Override
+    @Transactional
     public void deleteVehiclesByYear(int year) {
         vehicleRepository.deleteByServiceYear(year);
+    }
+
+    @Override
+    public Vehicle saveVehicle(Vehicle vehicle) {
+        return vehicleRepository.save(vehicle);
     }
 }

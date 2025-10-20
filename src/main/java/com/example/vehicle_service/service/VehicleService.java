@@ -8,4 +8,5 @@ public interface VehicleService {
     List<Vehicle> getVehiclesByYear(int year);
     String getVehicleTypeByServiceId(Long id);
     void deleteVehiclesByYear(int year);
+    Vehicle saveVehicle(Vehicle vehicle); // important
 }
